@@ -200,7 +200,7 @@ If you use this code in your research, please cite:
   title={Generative Imitation Learning for Dual-Arm Manipulation},
   author={SDSC6019 Group Project},
   year={2026},
-  url={https://github.com/yourusername/generative-imitation-dual-arm}
+  url={https://github.com/joeypeng1023/generative-imitation-dual-arm}
 }
 ```
 
