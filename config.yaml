@@ -1,0 +1,115 @@
+# Project Configuration for Generative Imitation Learning
+
+# Environment settings
+environment:
+  name: "TwoArmLift"
+  robots: ["Panda", "Panda"]
+  controller_configs: "OSC_POSE"
+  has_renderer: true
+  has_offscreen_renderer: false
+  use_camera_obs: false
+  use_object_obs: true
+  horizon: 500
+
+# Data settings
+data:
+  demonstrations_dir: "data/demonstrations"
+  test_data_dir: "data/test_data"
+  expert_data_dir: "data/expert_data"
+  hdf5_format: "robosuite"
+  max_demonstrations: 100
+  validation_split: 0.2
+
+# Model settings
+model:
+  # BC/DAgger settings
+  bc:
+    hidden_dim: 256
+    num_layers: 3
+    dropout: 0.1
+    activation: "relu"
+  
+  # Diffusion policy settings
+  diffusion:
+    hidden_dim: 512
+    num_layers: 4
+    num_diffusion_steps: 100
+    beta_schedule: "cosine"
+    predict_epsilon: true
+  
+  # Vision model settings
+  vision:
+    backbone: "resnet18"
+    pretrained: true
+    freeze_backbone: false
+    feature_dim: 512
+
+# Training settings
+training:
+  # General settings
+  batch_size: 32
+  learning_rate: 1e-3
+  weight_decay: 1e-4
+  num_epochs: 100
+  checkpoint_freq: 10
+  eval_freq: 5
+  
+  # BC training
+  bc:
+    learning_rate: 1e-3
+    num_epochs: 50
+  
+  # DAgger training
+  dagger:
+    learning_rate: 1e-3
+    num_epochs: 30
+    dagger_iterations: 5
+    rollouts_per_iteration: 20
+    beta_schedule: "linear"  # or "constant"
+    initial_beta: 0.1
+  
+  # Diffusion training
+  diffusion:
+    learning_rate: 1e-4
+    num_epochs: 200
+    ema_decay: 0.999
+
+# Evaluation settings
+evaluation:
+  num_eval_episodes: 20
+  success_threshold: 0.8  # For task completion
+  render_every_n: 5
+  save_videos: true
+  video_fps: 30
+  
+  # Metrics
+  metrics:
+    - "success_rate"
+    - "average_return"
+    - "trajectory_length"
+    - "action_smoothness"
+    - "mmd_distance"
+
+# Logging settings
+logging:
+  log_dir: "logs"
+  tensorboard: true
+  wandb: false
+  wandb_project: "generative-imitation-dual-arm"
+  console_log_level: "INFO"
+  file_log_level: "DEBUG"
+
+# Paths
+paths:
+  checkpoints: "checkpoints"
+  results: "results"
+  videos: "media/videos"
+  plots: "media/plots"
+
+# Hardware settings
+hardware:
+  device: "cuda"  # or "cpu"
+  num_workers: 4
+  pin_memory: true
+  deterministic: false
+  seed: 42
