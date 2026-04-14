@@ -1,4 +1,4 @@
-# Generative Imitation Learning for Dual-Arm Manipulation
+# Diffusion Policy Imitation Learning for Dual-Arm Manipulation
 
 ## Project Overview
 This project implements and compares three imitation learning algorithms for dual-arm robot manipulation:
@@ -11,7 +11,7 @@ The project focuses on learning policies for dual-arm manipulation tasks using t
 ## Repository Structure
 
 ```
-Generative-Imitation-Learning-for-Dual-Arm-Manipulation/
+Diffusion-Policy-Imitation-Learning-for-Dual-Arm-Manipulation/
 ├── data/                    # Data collection and preprocessing scripts
 │   ├── config.py           # Configuration and hyperparameters
 │   ├── data_collection.py  # Data collection utilities
@@ -49,10 +49,7 @@ Generative-Imitation-Learning-for-Dual-Arm-Manipulation/
 │   ├── student1_troubleshooting_log.md  # Student 1 troubleshooting
 │   ├── student2_AI_Prompt_Log.txt    # Student 2 AI prompts
 │   ├── TECHNICAL_DOCUMENTATION.md    # Technical documentation
-│   ├── TRAINING_DEVELOPMENT_LOG.md   # Training logs
-│   ├── report.md                     # Project report (markdown)
-│   ├── report.pdf                    # Project report (PDF)
-│   └── Generative-Imitation-Learning-for-Dual-Arm-Manipulation.pptx  # Presentation
+│   └── TRAINING_DEVELOPMENT_LOG.md   # Training logs
 ├── media/               # Visual media files
 │   ├── mujoco.png      # MuJoCo visualization
 │   ├── student2_loss.png  # Training loss plot
@@ -74,7 +71,7 @@ Generative-Imitation-Learning-for-Dual-Arm-Manipulation/
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd Generative-Imitation-Learning-for-Dual-Arm-Manipulation
+cd Diffusion-Policy-Imitation-Learning-for-Dual-Arm-Manipulation
 
 # Create virtual environment
 python -m venv venv
@@ -196,11 +193,11 @@ This project is for academic purposes. Please cite if used in research.
 If you use this code in your research, please cite:
 
 ```bibtex
-@misc{generative_imitation_dual_arm_2026,
-  title={Generative Imitation Learning for Dual-Arm Manipulation},
+@misc{diffusion_policy_imitation_dual_arm_2026,
+  title={Diffusion Policy Imitation Learning for Dual-Arm Manipulation},
   author={SDSC6019 Group Project},
   year={2026},
-  url={https://github.com/joeypeng1023/generative-imitation-dual-arm}
+  url={https://github.com/joeypeng1023/diffusion-policy-imitation-dual-arm}
 }
 ```
 
